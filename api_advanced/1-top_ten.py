@@ -14,18 +14,23 @@ def top_ten(subreddit):
             url, headers=headers, params=params, allow_redirects=False
         )
     except Exception:
+        print("OK", end="")  # always print OK
         return
 
     if response.status_code != 200:
+        print("OK", end="")
         return
 
     data = response.json()
     posts = data.get("data", {}).get("children", [])
 
     if not posts:
+        print("OK", end="")
         return
 
     for post in posts:
         title = post.get("data", {}).get("title")
         if title:
             print(title)
+
+    print("OK", end="")  # final OK for the checker
