@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Return the number of subscribers of a given subreddit"""
+"""Return the umber of subscribers of a given subreddit"""
 
 import requests
 
