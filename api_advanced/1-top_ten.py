@@ -15,22 +15,20 @@ def top_ten(subreddit):
         )
     except Exception:
         print("None")
-        return None
+        return
 
     if response.status_code != 200:
         print("None")
-        return None
+        return
 
     data = response.json()
     posts = data.get("data", {}).get("children", [])
 
     if not posts:
         print("None")
-        return None
+        return
 
     for post in posts:
         title = post.get("data", {}).get("title")
         if title:
             print(title)
-    
-    return "OK"
