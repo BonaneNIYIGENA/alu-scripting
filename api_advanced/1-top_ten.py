@@ -14,15 +14,18 @@ def top_ten(subreddit):
             url, headers=headers, params=params, allow_redirects=False
         )
     except Exception:
+        print("None")
         return
 
     if response.status_code != 200:
+        print("None")
         return
 
     data = response.json()
     posts = data.get("data", {}).get("children", [])
 
     if not posts:
+        print("None")
         return
 
     for post in posts:
